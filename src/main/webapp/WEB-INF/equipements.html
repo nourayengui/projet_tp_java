@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestion des équipements</title>
+
+    <link rel="stylesheet" href="equipements.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Gestion des équipements</h1>
+</header>
+
+
+<main>
+
+    <!-- Formulaire -->
+    <section class="form-section">
+
+        <h2 id="form-title">
+            Ajouter un équipement
+        </h2>
+
+        <form id="equipement-form">
+
+            <input
+                type="hidden"
+                id="idEquipement"
+            >
+
+            <div>
+                <label for="designation">
+                    Désignation
+                </label>
+
+                <input
+                    type="text"
+                    id="designation"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="lieu">
+                    Lieu
+                </label>
+
+                <input
+                    type="text"
+                    id="lieu"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+
+            <button type="submit">
+                Enregistrer
+            </button>
+
+            <button
+                type="button"
+                id="cancel-button"
+                hidden
+            >
+                Annuler
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Message -->
+    <div id="message"></div>
+
+
+    <!-- Liste -->
+    <section>
+
+        <h2>Liste des équipements</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Désignation</th>
+                    <th>Lieu</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="equipements-body">
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<script src="equipements.js"></script>
+
+</body>
+
+</html>
