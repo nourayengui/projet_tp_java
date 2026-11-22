@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demandes d'intervention</title>
+<link rel="stylesheet" href="demandes.css">
+</head>
+<body>
+<header>
+  <h1>Demandes d'intervention</h1>
+  <div id="userbar">
+    <label>Utilisateur (test) :
+      <select id="mockUser"></select>
+    </label>
+    <span id="roleBadge" class="badge"></span>
+  </div>
+</header>
+
+<main>
+  <section id="stats" class="stats"></section>
+
+  <section class="card">
+    <h2 id="formTitle">Nouvelle demande</h2>
+    <form id="demandeForm" novalidate>
+      <input type="hidden" id="demandeId">
+      <div class="grid">
+        <label class="full">Description
+          <input type="text" id="description" required placeholder="Ex : l'écran ne s'allume plus">
+        </label>
+        <label>Équipement
+          <select id="equipement" required></select>
+        </label>
+        <label>Catégorie (compétence requise)
+          <select id="categorie" required></select>
+        </label>
+        <label>Priorité
+          <select id="priorite" required></select>
+        </label>
+        <label>Durée estimée (1 à 8 h)
+          <input type="number" id="duree" min="1" max="8" step="1" value="1" required>
+        </label>
+        <label>Date de signalement
+          <input type="date" id="dateSignalement" required>
+        </label>
+      </div>
+      <p id="formError" class="error" hidden></p>
+      <div class="actions">
+        <button type="submit" id="btnSave" class="primary">Envoyer la demande</button>
+        <button type="button" id="btnCancelEdit" hidden>Annuler la modification</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Liste des demandes</h2>
+    <div class="filters">
+      <input type="search" id="search" placeholder="Rechercher...">
+      <select id="fStatut"></select>
+      <select id="fCategorie"></select>
+      <select id="fPriorite"></select>
+      <label>Jour planifié (calcul du score)
+        <input type="date" id="jourPlan">
+      </label>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>Description</th><th>Équipement</th><th>Catégorie</th>
+            <th>Priorité</th><th>Durée</th><th>Signalée le</th><th>Score</th>
+            <th>Statut</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p id="empty" class="muted" hidden>Aucune demande à afficher.</p>
+  </section>
+</main>
+
+<div id="toast" hidden></div>
+<script src="demandes.js"></script>
+</body>
+</html>
