@@ -36,3 +36,7 @@ build/
 bin/
 *.class
 .DS_Store
+
+application-local.properties
+
+application-local.properties
