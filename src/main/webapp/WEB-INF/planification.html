@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planification</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/intervention.css">
+</head>
+<body>
+<header>
+    <h1>Planification optimisée</h1>
+    <nav>
+        <a href="planification.html" class="active">Planification</a>
+        <a href="affectation.html">Affectation manuelle</a>
+        <a href="liste.html">Interventions</a>
+    </nav>
+</header>
+
+<main>
+    <div id="message"></div>
+
+    <section class="form-section">
+        <h2>Lancer la planification</h2>
+        <div class="toolbar">
+            <div>
+                <label for="jour">Jour à planifier</label>
+                <input type="date" id="jour">
+            </div>
+            <div>
+                <label for="algo">Algorithme</label>
+                <select id="algo">
+                    <option value="glouton">Glouton</option>
+                    <option value="locale">Glouton + recherche locale</option>
+                    <option value="arrivee">Ordre d'arrivée</option>
+                </select>
+            </div>
+            <div>
+                <button id="btnProposer" class="btn-primary">Proposer</button>
+                <button id="btnComparer" class="btn-light">Comparer</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="zoneComp" class="form-section hidden">
+        <h2>Comparaison des algorithmes</h2>
+        <table>
+            <thead>
+                <tr><th>Algorithme</th><th>Valeur totale</th><th>Demandes affectées</th><th>Critiques non traitées</th></tr>
+            </thead>
+            <tbody id="compBody"></tbody>
+        </table>
+    </section>
+
+    <section id="zonePlan" class="form-section hidden">
+        <h2>Proposition (modifiable)</h2>
+        <div id="resume" class="summary"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Demande</th><th>Description</th><th>Catégorie</th>
+                    <th>Priorité</th><th>Durée</th><th>Score</th><th>Technicien</th>
+                </tr>
+            </thead>
+            <tbody id="planBody"></tbody>
+        </table>
+        <p>
+            <button id="btnValider" class="btn-success">Valider la planification</button>
+        </p>
+    </section>
+</main>
+
+<script src="../js/intervention.js"></script>
+<script>initPlanification();</script>
+</body>
+</html>
